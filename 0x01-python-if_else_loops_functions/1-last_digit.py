@@ -12,4 +12,3 @@ elif module_value == 0:
     print("and is 0")
 elif module_value < 6 and module_value != 0:
     print("and is less than 6 and not 0")
-
