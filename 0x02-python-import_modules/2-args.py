@@ -12,4 +12,3 @@ if __name__ == "__main__":
         a = argv[n]
         print("{:d}: {:s}".format(n, str(a)))
         n += 1
-
