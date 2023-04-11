@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 3-write_file.py
-# eshetu belew
+# eshetu belw
 """Defines a file-writing function."""
 
 
