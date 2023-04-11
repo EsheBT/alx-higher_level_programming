@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-# 0-read_file.py
-# eshetu belew 
-"""Defines a text file-reading function."""
+# 1-number_of_lines.py
+# eshetu belew
+"""Defines a text file line-counting function."""
 
 
-def read_file(filename=""):
-    """Print the contents of a UTF8 text file to stdout."""
-    with open(filename, encoding="utf-8") as f:
-        print(f.read(), end="")
+def number_of_lines(filename=""):
+    """Return the number of lines in a text file."""
+    lines = 0
+    with open(filename) as f:
+        for line in f:
+            lines += 1
+    return lines
