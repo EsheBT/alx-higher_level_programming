@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-# 1-number_of_lines.py
-# eshetu belew
-"""Defines a text file line-counting function."""
+"""This module defines a file-writing function."""
 
 
-def number_of_lines(filename=""):
-    """Return the number of lines in a text file."""
-    lines = 0
-    with open(filename) as f:
-        for line in f:
-            lines += 1
-    return lines
+def write_file(filename="", text=""):
+    """Writes a string to a UTF8 text file
+    """
+    with open(filename, "w", encoding="utf-8") as f:
+        return f.write(text)
