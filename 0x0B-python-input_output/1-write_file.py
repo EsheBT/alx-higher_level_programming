@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 0-read_file.py
-# eshetu belew
+# eshetu belew 
 """Defines a text file-reading function."""
 
 
