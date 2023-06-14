@@ -1,2 +1,2 @@
 #!/usr/bin/node
-console.log('javaScript is amazing')
+console.log('javaScript is amazing');
