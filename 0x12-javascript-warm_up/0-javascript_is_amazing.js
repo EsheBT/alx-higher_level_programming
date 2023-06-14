@@ -1,2 +1,3 @@
 #!/usr/bin/node
-console.log('javaScript is amazing');
+const Eshe = 'JavaScript is amazing';
+console.log(Eshe);
