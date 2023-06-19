@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-"""Adds State object to database
-Takes three arguments
-    mysql username
-    mysql password
-    database name
-Connects to host localhost and default port (3306)
+""" prints the State object with the name passed as argument from the database
 """
+import sys
+from model_state import Base, State
+from sqlalchemy import (create_engine)
+from sqlalchemy.orm import sessionmaker
+
+
 if __name__ == "__main__":
-    from sqlalchemy import (create_engine)
-    from sqlalchemy.orm import sessionmaker
-    from model_state import Base, State
-    from sys import argv
-    Session = sessionmaker()
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    session = Session(bind=engine)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
-    state = State(name="Louisiana")
-    session.add(state)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    new_instance = session.query(State).filter_by(name='Louisiana').first()
+    print(new_instance.id)
     session.commit()
-    print(state.id)
-    session.close()
