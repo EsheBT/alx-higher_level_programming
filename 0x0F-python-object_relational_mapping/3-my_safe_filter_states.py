@@ -1,23 +1,17 @@
 #!/usr/bin/python3
-"""Script takes in arguments, sanitizes them, and display state
-Takes four arguments:
-    mysql username
-    mysql password
-    database name
-    name to match (to sanitize)
-Connects to default host (localhost) and port (3306)
-"""
+"""  lists all states from the database hbtn_0e_0_usa """
+import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
-    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
-    c = db.cursor()
-    param = (argv[4], )
-    c.execute("SELECT * FROM states WHERE name = %s\
-            ORDER BY states.id ASC", param)
-    rows = c.fetchall()
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    cur = db.cursor()
+    match = sys.argv[4]
+    cur.execute("SELECT * FROM states WHERE name LIKE %s", (match, ))
+    rows = cur.fetchall()
     for row in rows:
         print(row)
-    c.close()
+    cur.close()
     db.close()
