@@ -10,4 +10,4 @@ request(url, function (error, response) {
     // display the status code of a GET request.
     console.log(`code: ${response.statusCode}`);
   }
-});
+}); 
