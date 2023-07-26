@@ -12,4 +12,4 @@ fs.writeFile(file, text, 'utf8', function (err, data) {
   if (err) {
     console.log(err);
   }
-});
+});;
