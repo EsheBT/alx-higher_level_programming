@@ -19,4 +19,4 @@ request(process.argv[2], function (error, response, body) {
     return acc;
   }, {});
   console.log(dict);
-});;
+});
